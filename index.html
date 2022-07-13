@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*div {*/
+        /*    width: 100px;*/
+        /*    height: 100px;*/
+        /*    background-color: red;*/
+        /*    animation-name: example;*/
+        /*    animation-duration: 4s;*/
+        /*}*/
+
+        /*@keyframes example {*/
+        /*    from {*/
+        /*        background-color: red;*/
+        /*    }*/
+        /*    to {*/
+        /*        background-color: yellow;*/
+        /*    }*/
+        /*}*/
+    </style>
+    <script src="test.js"></script>
+    <script>
+
+        function main() {
+            let deck = document.getElementById("deck");
+            let cards = getMajor();
+            shuffle(cards)
+            for (const card of cards) {
+                let p = document.createElement("p");
+                let text = document.createTextNode(card);
+                p.appendChild(text);
+                deck.appendChild(p);
+            }
+        }
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                let j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+    </script>
+</head>
+<body onload="main()">
+<div id="deck"></div>
+</body>
+</html>
