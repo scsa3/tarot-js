@@ -52,29 +52,34 @@
         }
     </style>
     <script>
-        let flag = true;
-        function f() {
-            if (flag) {
-                let e = document.getElementById("i");
+        function f(cardId) {
+            let e = document.getElementById(cardId);
+            if (e.style.transform !== "rotateY(180deg)") {
                 e.style.transform = "rotateY(180deg)";
-                flag = false;
             } else {
-                let e = document.getElementById("i");
                 e.style.transform = "rotateY(0deg)";
-                flag = true;
             }
-
         }
     </script>
 </head>
 <body>
-<div class="flip-card" onclick="f()">
-    <div class="flip-card-inner" id="i">
+<div class="flip-card" onclick="f('maj00')">
+    <div class="flip-card-inner" id="maj00">
         <div class="flip-card-front">
             <img src="Luna-Sol-back.jpg" alt="Avatar" style="width:350px;height:600px;">
         </div>
         <div class="flip-card-back">
             <img src="maj00.jpg" alt="Avatar" style="width:350px;height:600px;">
+        </div>
+    </div>
+</div>
+<div class="flip-card" onclick="f('maj01')">
+    <div class="flip-card-inner" id="maj01">
+        <div class="flip-card-front">
+            <img src="Luna-Sol-back.jpg" alt="Avatar" style="width:350px;height:600px;">
+        </div>
+        <div class="flip-card-back">
+            <img src="maj01.jpg" alt="Avatar" style="width:350px;height:600px;">
         </div>
     </div>
 </div>
