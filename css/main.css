@@ -2,3 +2,8 @@
 #deck {
     white-space: nowrap;
 }
+
+/* Overlap */
+.flip-card {
+    margin-right: -10%;
+}
