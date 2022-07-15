@@ -15,10 +15,10 @@
 
             let deck = document.getElementById("deck");
             let template = document.getElementById("card-template");
-            let front = template.content.querySelector("img");
+            let front = template.content.querySelector(".front");
 
             for (const card of cards) {
-                front.src = "images/" + card + ".jpg";
+                front.style = "background-image: url('images/" + card + ".jpg')";
                 let clone = document.importNode(template.content, true);
                 deck.appendChild(clone);
             }
@@ -30,12 +30,9 @@
 <template id="card-template">
     <div class="card" onclick="flip(this)">
         <div class="content">
-            <div class="front">
-                <img src="images/maj00.jpg" alt="card front">
+            <div class="front" style="background-image: url('images/maj00.jpg')">
             </div>
-            <div class="back">
-                <img src="images/Luna-Sol-back.jpg" alt="card back">
-            </div>
+            <div class="back"></div>
         </div>
     </div>
 </template>
