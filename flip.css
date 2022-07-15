@@ -1,10 +1,22 @@
+:root {
+    /*--card-width: 350px;*/
+    /*--card-height: 600px;*/
+    --card-width: 175px;
+    --card-height: 300px;
+}
+
+img {
+    width: var(--card-width);
+    height: var(--card-height);
+}
 /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
 .flip-card {
     background-color: transparent;
-    width: 350px;
-    height: 600px;
+    width: var(--card-width);
+    height: var(--card-height);
     border: 1px solid #f1f1f1;
     perspective: 1000px; /* Remove this if you don't want the 3D effect */
+    display: inline-block
 }
 
 /* This container is needed to position the front and back side */
@@ -22,7 +34,6 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    -webkit-backface-visibility: hidden; /* Safari */
     backface-visibility: hidden;
 }
 
