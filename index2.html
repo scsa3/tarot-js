@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .rectangle {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            border-radius: 1rem;
+            border: 2px solid #73AD21;
+            height: 7.5vw;
+            width: 5vw;
+            display: inline-block;
+            background-color: #dddddd;
+        }
+    </style>
+    <script>
+        let x = 0;
+
+        function main() {
+            let deck = document.getElementById("deck");
+            for (const i of Array(78).keys()) {
+                let div = document.createElement("div");
+                div.className = "rectangle"
+                div.style.transform = getTransform(i);
+                div.id = `card-${i}`;
+                div.value = i;
+                div.setAttribute("ontouchstart", "input(this.value)")
+                deck.appendChild(div);
+            }
+            let rectangles = document.getElementsByClassName("rectangle");
+            console.log(rectangles);
+        }
+
+        function input(index) {
+            console.log(x);
+            let label = document.getElementById("card-number");
+            label.innerText = index;
+
+            let lastDiv = document.getElementById(`card-${x}`);
+            lastDiv.style.transform = getTransform(x);
+            x = index;
+
+            let i = Number(index);
+            let div = document.getElementById(`card-${i}`)
+            div.style.transform = getTransform(i) + ' translateY(-5vw)';
+        }
+
+        function getTransform(index) {
+            let i = Number(index);
+            let rotate = (-80 / 2 + i) / 3;
+            let translateY = 200;
+            return `translateY(${translateY}vw) rotate(${rotate}deg) translateY(${-translateY}vw) translateY(${i}px)`;
+        }
+    </script>
+</head>
+<body onload="main()">
+
+<div>
+    <input type="range" id="volume" name="volume" min="0" max="77" oninput="input(this.value)">
+    <label for="volume" id="card-number">Volume</label>
+</div>
+<div id="deck">
+</div>
+</body>
+</html>
