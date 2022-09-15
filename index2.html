@@ -27,7 +27,7 @@
                 div.style.transform = getTransform(i);
                 div.id = `card-${i}`;
                 div.value = i;
-                div.setAttribute("onmouseover", "input(this.value)");
+                div.setAttribute("ontouchmove", "input(this.value)");
                 deck.appendChild(div);
             }
             let rectangles = document.getElementsByClassName("rectangle");
